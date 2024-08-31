@@ -2,7 +2,7 @@
 
 # Docker Node.js Sample
 
-This repository contains a sample Node.js application containerized with PostgreSQL using Docker.
+This repository provides a Dockerfile for containerizing a Node.js application with PostgreSQL. Follow these steps to build and run the application using Docker.
 
 ## Getting Started
 
@@ -11,22 +11,37 @@ This repository contains a sample Node.js application containerized with Postgre
 - Install [Docker](https://docs.docker.com/get-docker/)
 - Install [Docker Compose](https://docs.docker.com/compose/install/)
 
-### Installation
+### Setup
 
-1. Clone the repository:
+1. Clone the main application repository:
 
    ```bash
    git clone https://github.com/docker/docker-nodejs-sample.git
    cd docker-nodejs-sample
    ```
 
-2. Start the Docker containers:
+2. Clone this repository containing the Dockerfile and Docker Compose file:
+
+   ```bash
+   git clone https://github.com/Jidetireni/docker-nodejs.git
+   cd docker-nodejs
+   ```
+3. Move the `Dockerfile` and `compose.yaml` to the main application directory and remove the `docker-nodejs` directory:
+
+   ```bash
+   mv Dockerfile ../
+   mv compose.yaml ../
+   cd ..
+   rm -rf docker-nodejs
+   ```
+
+4. Build and run the Docker containers:
 
    ```bash
    docker-compose up -d
    ```
 
-3. Access the application in your browser at [http://localhost:3000](http://localhost:3000)
+5. Access the application in your browser at [http://localhost:3000](http://localhost:3000).
 
 ### Stopping the Containers
 
@@ -43,10 +58,5 @@ To stop and remove the containers:
 ```bash
 docker-compose down
 ```
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
